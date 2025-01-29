@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Profile Card</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        background: linear-gradient(135deg, #e3dbf6, #a99bf9);
+        font-family: Arial, sans-serif;
+      }
+      .card {
+        background: transparent;
+        padding: 20px;
+        border: 1px solid #e3dbf6;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        width: 450px;
+      }
+      .card img {
+        width: 350px;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .card h2,
+      .card p {
+        margin: 10px 0;
+      }
+
+      .card h2 {
+        font-weight: 600;
+        color: #faf8ff;
+        font-size: 32px;
+        text-transform: uppercase;
+        /* font-style: italic; */
+      }
+
+      [data-testid="jobTitle"] {
+        padding: 9px;
+        display: inline-block;
+        border: 1px solid white;
+        border-radius: 8px;
+        color: #9180b8;
+        font-weight: 600;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      [data-testid="shortBio"] {
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 25px;
+        color: #faf8ff;
+        font-style: italic;
+      }
+
+      [data-testid="emailAddress"],
+      [data-testid="currentLocation"] {
+        margin: 10px 0;
+        display: block;
+      }
+
+      [data-testid="currentTimeUTC"] {
+        padding: 7px;
+        border: 1px solid;
+        border-radius: 5px;
+        color: #faf8ff;
+      }
+
+      .socials {
+        padding: 20px 0;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      a {
+        color: #faf8ff;
+        text-decoration: none;
+        background: transparent;
+        padding: 7px;
+        border: 1px solid;
+        border-radius: 5px;
+        transition: color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img
+        src="profile.jpeg"
+        alt="Profile Picture"
+        data-testid="profilePicture"
+      />
+      <h2 data-testid="fullName">Oghuanlan Kingsley</h2>
+      <p data-testid="jobTitle">Frontend Developer</p>
+      <p data-testid="shortBio">
+        <i class="fa-solid fa-quote-left"></i>
+        I am a passionate front-end developer with a love for creating dynamic
+        and user-friendly websites. I enjoy working with modern web technologies
+        like HTML, CSS, JavaScript, and React. Always eager to learn and
+        improve, I'm excited to explore new challenges in the world of web
+        development.
+        <i class="fa-solid fa-quote-right"></i>
+      </p>
+
+      <a data-testid="currentLocation">
+        <i class="fa-solid fa-location-dot"></i>
+        Lagos, Nigeria
+      </a>
+      <a data-testid="emailAddress">
+        <i class="fa-solid fa-envelope"></i>
+        oghuanlan@gmail.com
+      </a>
+      <div data-testid="socialLinks" class="socials">
+        <a href="https://github.com/kvng-dev">
+          <i class="fa-brands fa-github"></i>
+          GitHub</a
+        >
+
+        <a href="https://linkedin.com/in/kingsley-oghuanlan-a329111a4">
+          <i class="fa-brands fa-linkedin"></i>
+          LinkedIn</a
+        >
+
+        <a href="https://x.com/meme_agbero">
+          <i class="fa-brands fa-square-twitter"></i>
+          Twitter</a
+        >
+      </div>
+
+      <p data-testid="currentTimeUTC" id="currentTime"></p>
+    </div>
+    <script>
+      function updateTime() {
+        document.getElementById("currentTime").innerHTML = `
+        <i class="fa-solid fa-clock"></i>
+          ${new Date().toUTCString()}`;
+      }
+      setInterval(updateTime, 1000);
+      updateTime();
+    </script>
+  </body>
+</html>
