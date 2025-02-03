@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Open Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 100%;
+
+  background-color: #575d62;
+  color: white;
+}
+
+nav {
+  background: #083751;
+  display: flex;
+  position: fixed;
+  color: white;
+  padding: 10px 30px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  transition: ease-in-out 0.5s;
+}
+
+.intro {
+  width: 100%;
+  height: 100vh;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInScale 1s ease-out forwards;
+}
+
+/* Define the keyframes for the animation */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0; /* Start with hidden */
+    transform: scale(0.9); /* Start small */
+  }
+  100% {
+    opacity: 1; /* End with fully visible */
+    transform: scale(1); /* End at normal scale */
+  }
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  background-image: linear-gradient(
+    to right,
+    #ff5733,
+    #33ff57,
+    #3357ff
+  ); /* Gradient colors */
+  background-clip: text;
+  color: transparent;
+}
+
+.game-instructions {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.color-box {
+  width: 500px;
+  height: 500px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  border: 5px solid white;
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.color-option {
+  width: 120px;
+  height: 120px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10%;
+  transition: all 0.3s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+.game-status {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.new-game-button,
+.reset-game-button {
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.game-status,
+.score {
+  font-size: xx-large;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.new-game-button:hover,
+.reset-game-button:hover {
+  scale: 1.1;
+}
+
+.heart {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .color-options {
+    /* flex-direction: column; */
+    margin-bottom: 30px;
+  }
+
+  .heart {
+    font-size: medium;
+  }
+
+  .color-option {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 454px) {
+  .game-container {
+    padding: 30px 10px;
+  }
+  nav {
+    padding: 10px 10px;
+  }
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .color-options {
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .color-option {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    transition: transform 0.3s ease;
+  }
+
+  .color-box {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border: 5px solid white;
+  }
+  .game-instructions {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .heart {
+    font-size: medium;
+  }
+}
+
+/* Animation for Fade-Out Effect (Wrong Answer) */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 2s ease-out forwards;
+}
+
+/* Animation for Celebration (Correct Answer) */
+@keyframes celebration {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.celebrate {
+  animation: celebration 1s ease-in-out forwards;
+  color: #28a745; /* Green color for celebration */
+  font-weight: bold;
+}
+
+/* Optional: Add a smooth fade-in for the results */
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
